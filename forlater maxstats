@@ -1,0 +1,50 @@
+using System;
+using System.Collections.Generic;
+
+
+
+public class MaxStats 
+{
+    public float BaseValue;
+
+    public float Value { get {
+        if (isDirty) {
+            _value = CalculateFinalValue();
+        } 
+        return _value;
+    }
+    } 
+
+    private bool isDirty = true;
+    private float _value;
+
+    private readonly List<statmodmax> statModifiers;
+    
+    public MaxStats(float baseValue)
+    {
+        BaseValue = baseValue;
+        statModifiers = new List<statmodmax>();
+    }
+
+    public void AddModifier(statmodmax mod)
+    {
+        isDirty = true;
+        statModifiers.Add(mod);
+    }
+
+
+    private float CalculateFinalValue()
+    {
+         float finalValue = BaseValue;
+
+         for (int i = 0; i < statModifiers.Count; i++)
+         {
+             finalValue += statModifiers[i].Value;
+         }
+
+         
+    }
+
+
+    
+}

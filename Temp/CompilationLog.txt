@@ -1,0 +1,26 @@
+# Starting compiling UnityEngine.TestRunner.dll
+/Users/mac/Documents/2020.3.29f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-9a133c12af06844a1a9d990a1a7d82c2
+# Starting compiling UnityEngine.UI.dll
+/Users/mac/Documents/2020.3.29f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-deabfeac67b414a5aa9dfc4c9449e87e
+# Starting compiling Unity.InternalAPIEngineBridge.001.dll
+/Users/mac/Documents/2020.3.29f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-776ab3be27b774798bd4c97f5a2ebdbc
+# Starting compiling Unity.2D.PixelPerfect.dll
+/Users/mac/Documents/2020.3.29f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-e1da8ef22d1cd4427888aa283529690f
+# Starting compiling Unity.Timeline.dll
+/Users/mac/Documents/2020.3.29f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-465238894f6d44b00b088b9a4c83f9ae
+# Starting compiling Unity.TextMeshPro.dll
+/Users/mac/Documents/2020.3.29f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-5bd3a940196304cdb91d9ccebdd9e10e
+# Starting compiling Unity.Mathematics.dll
+/Users/mac/Documents/2020.3.29f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-25531a99b960b46aaa184d49d4426020
+# Starting compiling Unity.2D.IK.Runtime.dll
+/Users/mac/Documents/2020.3.29f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-16521ad4215b54c82b2ce0966ad3286b
+# Starting compiling Unity.2D.Animation.Triangle.Runtime.dll
+/Users/mac/Documents/2020.3.29f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-da223bce5d1994869b0cc73e217b0a2f
+# Starting compiling Unity.2D.Common.Runtime.dll
+/Users/mac/Documents/2020.3.29f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-7d02b25e4547f47fcbef2cd6e7c4c2ee
+# Starting compiling Unity.2D.Animation.Runtime.dll
+/Users/mac/Documents/2020.3.29f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-c2271a4d600e048f69687489fb45e62d
+# Starting compiling Unity.2D.SpriteShape.Runtime.dll
+/Users/mac/Documents/2020.3.29f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-59b641fec88ed4e858facf967ee2d5d5
+# Starting compiling Assembly-CSharp.dll
+/Users/mac/Documents/2020.3.29f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-45efa6d275f6647d4ae1908bb252cfa0

@@ -1,0 +1,13 @@
+
+
+public class statmodmax 
+{
+   public readonly float Value;
+   
+
+   public statmodmax(float value)
+   {
+       Value = value;
+      
+   }
+}
