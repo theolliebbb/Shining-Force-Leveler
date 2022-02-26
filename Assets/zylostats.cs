@@ -11,18 +11,6 @@ using UnityEngine.SceneManagement;
 public class zylostats : MonoBehaviour
 {
     static System.Random rnd = new System.Random();
-        
-        public int upattack = rnd.Next(1, 6);
-
-        public int updefense = rnd.Next(2, 4);
-
-        public int uphp = rnd.Next(1, 5);
-
-        public int upmp = rnd.Next(1, 5);
-
-        public int upagility = rnd.Next(1, 6);
-    
-    
     public Text title;
     public GameObject ZyloCanvas1;
     public GameObject ZyloCanvas2;
@@ -46,6 +34,11 @@ public class zylostats : MonoBehaviour
     public int defval = 6;
     public int hpval = 15;
     public int agval = 12;
+    int upattack;
+    int updefense;
+    int uphp;
+    int upmp;
+    int upagility;
     public string wfmn = "WFMN Zylo";
     public string wfbn = "WFBN Zylo";
     
@@ -126,6 +119,22 @@ public class zylostats : MonoBehaviour
     
     public void levelup()
     {
+        if (promoted == false)
+        {
+        upattack = rnd.Next(0, 3);
+        updefense = rnd.Next(0, 1);
+        uphp = rnd.Next(0, 3);
+        upmp = rnd.Next(0, 0);
+        upagility = rnd.Next(0, 3);
+        }
+        else
+        {
+        upattack = rnd.Next(0, 4);
+        updefense = rnd.Next(0, 2);
+        uphp = rnd.Next(0, 4);
+        upmp = rnd.Next(0, 0);
+        upagility = rnd.Next(0, 4);
+        }
        attack = GameObject.Find("attack").GetComponent<Text>();
        level = GameObject.Find("level").GetComponent<Text>();
        levval += 1;

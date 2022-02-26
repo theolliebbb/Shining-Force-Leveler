@@ -125,13 +125,30 @@ public class Taostats : MonoBehaviour
     
     public void levelup()
     {
-       attack = GameObject.Find("attack").GetComponent<Text>();
-       level = GameObject.Find("level").GetComponent<Text>();
-       levval += 1;
-       level.text = levval.ToString();
-       atval += upattack;
-       attack.text = atval.ToString();
-       mp = GameObject.Find("mp").GetComponent<Text>();
+
+       if (promoted == false)
+        {
+        upattack = rnd.Next(0, 2);
+        updefense = rnd.Next(0, 2);
+        uphp = rnd.Next(0, 3);
+        upmp = rnd.Next(0, 3);
+        upagility = rnd.Next(0, 3);
+        }
+        else
+        {
+        upattack = rnd.Next(0, 3);
+        updefense = rnd.Next(0, 3);
+        uphp = rnd.Next(0, 4);
+        upmp = rnd.Next(0, 4);
+        upagility = rnd.Next(0, 4);
+        }
+        attack = GameObject.Find("attack").GetComponent<Text>();
+        level = GameObject.Find("level").GetComponent<Text>();
+        levval += 1;
+        level.text = levval.ToString();
+        atval += upattack;
+        attack.text = atval.ToString();
+        mp = GameObject.Find("mp").GetComponent<Text>();
         mp.text = mpval.ToString();
          mpval += upmp;
         agility = GameObject.Find("agility").GetComponent<Text>();
