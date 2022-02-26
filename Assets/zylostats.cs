@@ -28,8 +28,8 @@ public class zylostats : MonoBehaviour
     public Text agility;
     public int atval = 6 ;
     public static int attacks;
-    public int levval = 0;
-    
+    public int levval;
+    public int levval2;
     public int mpval = 0;
     public int defval = 6;
     public int hpval = 15;
@@ -45,76 +45,127 @@ public class zylostats : MonoBehaviour
     public GameObject promoteButton;
     
     public bool promoted;
-   
+    public int promotedVal;
     public void Start()
     {    
         
        
-         attack = GetComponent<Text>();
-         attack.text = PlayerPrefs.GetInt("attacks").ToString();
-         
-         
-         attack.text = attacks.ToString();
-         
-         level.text = levval.ToString();
+         hq.Play();
+        attack = GetComponent<Text>();
+        if (PlayerPrefs.HasKey("savedAttack"))
+        {
+        atval = PlayerPrefs.GetInt("savedAttack");
+        }
+        else
+        {
+        atval = 6;
+
+        }
+        if (PlayerPrefs.HasKey("savedLevel"))
+        {
+        levval = PlayerPrefs.GetInt("savedLevel");
+        levval2 = levval;
+        }
+        else
+        {
+        levval2 = 1;
+        levval = levval2;
+        }
+
+        if (PlayerPrefs.HasKey("savedHP"))
+        {
+        hpval = PlayerPrefs.GetInt("savedHP");
+        }
+        else
+        {
+        hpval = 15;
+        }
+
+        if (PlayerPrefs.HasKey("savedDefense"))
+        {
+        defval = PlayerPrefs.GetInt("savedDefense");
+        }
+        else
+        {
+        defval = 6;
+        }
         
-         agility = GetComponent<Text>();
-         agility.text = agval.ToString();
-         hp = GetComponent<Text>();
-         hp.text = hpval.ToString();
-         defense = GetComponent<Text>();
-         defense.text = defval.ToString();
-         promoteButton.SetActive(false);
-         promoted = false;
-         title.text = wfbn;
-         title1.SetActive(true);
-          title2.SetActive(false);
+        if (PlayerPrefs.HasKey("savedMP"))
+        {
+        mpval = PlayerPrefs.GetInt("savedMP");
+        }
+        else
+        {
+        mpval = 0;
+        }
+
+        if (PlayerPrefs.HasKey("savedAgility"))
+        {
+        agval = PlayerPrefs.GetInt("savedAgility");
+        }
+        else
+        {
+        agval = 12;
+        }
+        
+         if (PlayerPrefs.HasKey("promotedVal"))
+        {
+        promotedVal = PlayerPrefs.GetInt("promotedVal");
+        }
+        else
+        {
+        promotedVal = 0;
+        }
+        
+        if (promotedVal == 0)
+        {
+            promoted = false;
+        }
+        else
+        {
+            promoted = true;
+        }
+        attack.text = atval.ToString();
+        level.text = levval.ToString();
+        mp.text = mpval.ToString();
+        agility.text = agval.ToString();
+        hp.text = hpval.ToString();
+        defense.text = defval.ToString();
+        if (promoted = true);
+        {
+        title1.SetActive(false);
+        title2.SetActive(true);
+        title.text = wfbn;
+        }
+        promoted = false;
+        title.text = wfbn;
+        title1.SetActive(true);
+        title2.SetActive(false);
 
     }
+
     public void classChange()
     {       
-            hq.Pause();
-              hq.Stop();
-            promotesound.Play();
-            StartCoroutine(waitMusic());
-          
-          
-           title1.SetActive(false);
-           title2.SetActive(true);
-           title.text = wfbn;
+            title1.SetActive(false);
+        title2.SetActive(true);
+        title.text = wfbn;
         
     }
-    IEnumerator waitMusic()
-    {
-        yield return new WaitForSecondsRealtime(13);
-    }
-  
-
 
     public void promote()
-       {    promoted = true;
-            hq.Pause();
-              hq.Pause();
-            promotesound.Play();
-            StartCoroutine(waitMusic());
-          
-         
-             
-           promoteButton.SetActive(false);
-            
-            levval = 0;
-            levelup();
-            level = GetComponent<Text>();
-             level.text = levval.ToString();
-            hq.Pause();
-             promotesound.Play();
-              hq.Play();
-
-             
-            
-            
-             
-             
+       {   
+        promoted = true;
+        promotedVal = 1;
+        PlayerPrefs.SetInt("promotedVal", promotedVal);
+        hq.Pause();
+        promotesound.Play();     
+        promoteButton.SetActive(false);
+        levval = 0;
+        levval2 = 0;
+        PlayerPrefs.SetInt("savedLevel", levval2);
+        levelup();
+        level = GetComponent<Text>();
+        level.text = levval.ToString();             
        } 
     
     public void levelup()
@@ -122,7 +173,7 @@ public class zylostats : MonoBehaviour
         if (promoted == false)
         {
         upattack = rnd.Next(0, 3);
-        updefense = rnd.Next(0, 1);
+        updefense = rnd.Next(0, 2);
         uphp = rnd.Next(0, 3);
         upmp = rnd.Next(0, 0);
         upagility = rnd.Next(0, 3);
@@ -130,51 +181,124 @@ public class zylostats : MonoBehaviour
         else
         {
         upattack = rnd.Next(0, 4);
-        updefense = rnd.Next(0, 2);
+        updefense = rnd.Next(0, 3);
         uphp = rnd.Next(0, 4);
         upmp = rnd.Next(0, 0);
         upagility = rnd.Next(0, 4);
         }
-       attack = GameObject.Find("attack").GetComponent<Text>();
-       level = GameObject.Find("level").GetComponent<Text>();
-       levval += 1;
-       level.text = levval.ToString();
-       atval += upattack;
-       attack.text = atval.ToString();
-       mp = GameObject.Find("mp").GetComponent<Text>();
+
+      levval = PlayerPrefs.GetInt("savedLevel");
+        levval = levval2;
+        level = GameObject.Find("level").GetComponent<Text>();
+        levval += 1;
+        
+        levval2 = levval;
+        level.text = levval.ToString();
+        PlayerPrefs.SetInt("savedLevel", levval2);
+	    PlayerPrefs.Save();
+   
+        attack = GameObject.Find("attack").GetComponent<Text>();
+        atval += upattack;
+        attack.text = atval.ToString();
+        PlayerPrefs.SetInt("savedAttack", atval);
+	    PlayerPrefs.Save();
+
+        mp = GameObject.Find("mp").GetComponent<Text>();
         mp.text = mpval.ToString();
+
         agility = GameObject.Find("agility").GetComponent<Text>();
         agility.text = agval.ToString();
         agval += upagility;
-         hp = GameObject.Find("hp").GetComponent<Text>();
+        PlayerPrefs.SetInt("savedAgility", agval);
+	    PlayerPrefs.Save();
+
+        hp = GameObject.Find("hp").GetComponent<Text>();
         hp.text = hpval.ToString();
         hpval += uphp;
+        PlayerPrefs.SetInt("savedHP", hpval);
+	    PlayerPrefs.Save();
+
         defense = GameObject.Find("defense").GetComponent<Text>();
         defense.text = defval.ToString();
         defval += updefense;
-       if (levval >= 10 && promoted == false)
+        PlayerPrefs.SetInt("savedDefense", defval);
+	    PlayerPrefs.Save();
+
+        if (levval >= 10 && promoted == false)
         {
             promoteButton.SetActive(true);
-            
         }
         if (promoted == true)
         {
-            title.text = wfbn;
-         title1.SetActive(true);
-          title2.SetActive(false);
-          
+        title.text = wfbn;
+        title1.SetActive(true);
+        title2.SetActive(false);
             
-      
-       }
-      void StatUpdater(int attacks)
-       {
-           atval = attacks;
-       }
+        }
+    }
+         public void resetStats()
+        {
+              PlayerPrefs.DeleteAll();
+              levval = 1;
+              levval2 = 1;
+              atval = 6;
+              defval = 6;
+              agval = 12;
+              hpval = 15;
+              mpval = 0;
+              PlayerPrefs.SetInt("savedMP", mpval);
+               promoted = false;
+        promotedVal = 0;
+        title1.SetActive(true);
+        title2.SetActive(false);
+        title.text = wfmn;
+        PlayerPrefs.SetInt("promotedVal", promotedVal);
+              level = GameObject.Find("level").GetComponent<Text>();
+        levval += 0;
+        level.text = levval.ToString();
+        attack = GameObject.Find("attack").GetComponent<Text>();
+        atval += 0;
+        attack.text = atval.ToString();
+        defense = GameObject.Find("defense").GetComponent<Text>();
+        defval += 0;
+        defense.text = defval.ToString();
+        hp = GameObject.Find("hp").GetComponent<Text>();
+        hpval += 0;
+        hp.text = hpval.ToString();
+        mp = GameObject.Find("mp").GetComponent<Text>();
+        mpval += 0;
+        mp.text = mpval.ToString();
+        agility = GameObject.Find("agility").GetComponent<Text>();
+        agval += 0;
+        agility.text = agval.ToString();
+        }
+
          void Update()
         {
-            PlayerPrefs.SetInt("attacks", atval);
-        
+            attack = GameObject.Find("attack").GetComponent<Text>();
+        if (promotedVal == 0)
+        {
+            promoted = false;
         }
+        else
+        {
+            promoted = true;
+            title1.SetActive(false);
+             title2.SetActive(true);
+            title.text = wfbn;
+        }
+        attack.text = atval.ToString();
+        defense.text = defval.ToString();
+        agility.text = agval.ToString();
+        hp.text = hpval.ToString();
+        mp.text = mpval.ToString();
+        level.text = levval.ToString();
+        if (levval >= 10 && promoted == false)
+        {
+            promoteButton.SetActive(true);
+        }
+        
+        
     
     
     }

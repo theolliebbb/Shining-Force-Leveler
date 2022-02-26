@@ -364,7 +364,7 @@ ScriptsOnlyBuild:
     className: TMP_FontAsset
   - hash:
       serializedVersion: 2
-      Hash: 418f37c86e6e997cb3a4b8e14efa2ab0
+      Hash: 163f07d91253b1bb3137b1c9b43cb441
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Taostats
@@ -616,7 +616,7 @@ ScriptsOnlyBuild:
     className: PositionAsUV1
   - hash:
       serializedVersion: 2
-      Hash: 684529192957c9f882ff685c67238f05
+      Hash: 7088bf868b8267c98cc78d033f9ca213
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Maxstats
@@ -790,7 +790,7 @@ ScriptsOnlyBuild:
     className: BufferManager
   - hash:
       serializedVersion: 2
-      Hash: d54f3cf13472b8d0583ee06f0cf375e8
+      Hash: 1f15660aad4433edbe8c1dded0d69f7f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: zylostats
@@ -830,4 +830,4 @@ ScriptsOnlyBuild:
   - Assets/Max.unity
   - Assets/Tao.unity
   - Assets/Zylo.unity
-  playerPath: /Users/mac/SFLeveler/SFLeveler Mac 1.1.app
+  playerPath: /Users/mac/SFLeveler/SFLeveler Mac 1.9.app
