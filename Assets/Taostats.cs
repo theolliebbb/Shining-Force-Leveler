@@ -56,63 +56,65 @@ public class Taostats : MonoBehaviour
        
         hq.Play();
         attack = GetComponent<Text>();
-        if (PlayerPrefs.HasKey("savedAttack"))
+        if (PlayerPrefs.HasKey("TaosavedAttack"))
         {
-        atval = PlayerPrefs.GetInt("savedAttack");
+        atval = PlayerPrefs.GetInt("TaosavedAttack");
         }
         else
         {
         atval = 5;
 
         }
-        if (PlayerPrefs.HasKey("savedLevel"))
+        if (PlayerPrefs.HasKey("TaosavedLevel"))
         {
-        levval = PlayerPrefs.GetInt("savedLevel");
+        levval = PlayerPrefs.GetInt("TaosavedLevel");
+        levval2 = levval;
         }
         else
         {
         levval2 = 1;
+        levval = levval2;
         }
 
-        if (PlayerPrefs.HasKey("savedHP"))
+        if (PlayerPrefs.HasKey("TaosavedHP"))
         {
-        hpval = PlayerPrefs.GetInt("savedHP");
+        hpval = PlayerPrefs.GetInt("TaosavedHP");
         }
         else
         {
         hpval = 12;
         }
 
-        if (PlayerPrefs.HasKey("savedDefense"))
+        if (PlayerPrefs.HasKey("TaosavedDefense"))
         {
-        defval = PlayerPrefs.GetInt("savedDefense");
+        defval = PlayerPrefs.GetInt("TaosavedDefense");
         }
         else
         {
         defval = 5;
         }
         
-        if (PlayerPrefs.HasKey("savedMP"))
+        if (PlayerPrefs.HasKey("TaosavedMP"))
         {
-        mpval = PlayerPrefs.GetInt("savedMP");
+        mpval = PlayerPrefs.GetInt("TaosavedMP");
         }
         else
         {
         mpval = 11;
         }
 
-        if (PlayerPrefs.HasKey("savedAgility"))
+        if (PlayerPrefs.HasKey("TaosavedAgility"))
         {
-        agval = PlayerPrefs.GetInt("savedAgility");
+        agval = PlayerPrefs.GetInt("TaosavedAgility");
         }
         else
         {
         agval = 10;
         }
         
-         if (PlayerPrefs.HasKey("promotedVal"))
+         if (PlayerPrefs.HasKey("TaopromotedVal"))
         {
-        promotedVal = PlayerPrefs.GetInt("promotedVal");
+        promotedVal = PlayerPrefs.GetInt("TaopromotedVal");
         }
         else
         {
@@ -128,45 +130,45 @@ public class Taostats : MonoBehaviour
             promoted = true;
         }
         //spellllll//
-        if (PlayerPrefs.HasKey("blaze4Val"))
+        if (PlayerPrefs.HasKey("Taoblaze4Val"))
         {
-        blaze4Val = PlayerPrefs.GetInt("blaze4Val");
+        blaze4Val = PlayerPrefs.GetInt("Taoblaze4Val");
         }
         else
         {
         blaze4Val = 0;
         }
 
-        if (PlayerPrefs.HasKey("sleep2Val"))
+        if (PlayerPrefs.HasKey("Taosleep2Val"))
         {
-        sleep2Val = PlayerPrefs.GetInt("sleep2Val");
+        sleep2Val = PlayerPrefs.GetInt("Taosleep2Val");
         }
         else
         {
         sleep2Val = 0;
         }
 
-        if (PlayerPrefs.HasKey("blaze4Val"))
+        if (PlayerPrefs.HasKey("Taoblaze4Val"))
         {
-        blaze4Val = PlayerPrefs.GetInt("blaze4Val");
+        blaze4Val = PlayerPrefs.GetInt("Taoblaze4Val");
         }
         else
         {
         blaze4Val = 0;
         }
 
-        if (PlayerPrefs.HasKey("desoul1Val"))
+        if (PlayerPrefs.HasKey("Taodesoul1Val"))
         {
-        desoul1Val = PlayerPrefs.GetInt("desoul1Val");
+        desoul1Val = PlayerPrefs.GetInt("Taodesoul1Val");
         }
         else
         {
         desoul1Val = 0;
         }
 
-        if (PlayerPrefs.HasKey("desoul2Val"))
+        if (PlayerPrefs.HasKey("Taodesoul2Val"))
         {
-        desoul2Val = PlayerPrefs.GetInt("desoul2Val");
+        desoul2Val = PlayerPrefs.GetInt("Taodesoul2Val");
         }
         else
         {
@@ -237,7 +239,7 @@ public class Taostats : MonoBehaviour
        {
            blazePill4.SetActive(true);
            blaze4Val = 1;
-           PlayerPrefs.SetInt("blaze4Val", blaze4Val);
+           PlayerPrefs.SetInt("Taoblaze4Val", blaze4Val);
        }
        
        if ((promoted == false) & (levval >= 6))
@@ -248,19 +250,19 @@ public class Taostats : MonoBehaviour
         {
            sleepPill2.SetActive(true);
            sleep2Val = 1;
-           PlayerPrefs.SetInt("sleep2Val", sleep2Val);
+           PlayerPrefs.SetInt("Taosleep2Val", sleep2Val);
        }
        if ((promoted == false) & (levval >= 10))
         {
             desoulImage.SetActive(true);
             desoul1Val = 1;
-            PlayerPrefs.SetInt("desoul1Val", desoul1Val);
+            PlayerPrefs.SetInt("Taodesoul1Val", desoul1Val);
         }
         if ((promoted == true) & (levval >= 12)|| (promoted == false) & (levval >= 22)) 
         {
            desoulPill2.SetActive(true);
            desoul2Val = 1;
-           PlayerPrefs.SetInt("desoul2Val", desoul2Val);
+           PlayerPrefs.SetInt("Taodesoul2Val", desoul2Val);
        }
 
         attack.text = atval.ToString();
@@ -299,13 +301,13 @@ public class Taostats : MonoBehaviour
        {   
         promoted = true;
         promotedVal = 1;
-        PlayerPrefs.SetInt("promotedVal", promotedVal);
+        PlayerPrefs.SetInt("TaopromotedVal", promotedVal);
         hq.Pause();
         promotesound.Play();     
         promoteButton.SetActive(false);
         levval = 0;
         levval2 = 0;
-        PlayerPrefs.SetInt("savedLevel", levval2);
+        PlayerPrefs.SetInt("TaosavedLevel", levval2);
         levelup();
         level = GetComponent<Text>();
         level.text = levval.ToString();
@@ -330,20 +332,20 @@ public class Taostats : MonoBehaviour
         upmp = rnd.Next(0, 4);
         upagility = rnd.Next(0, 4);
         }
-        levval = PlayerPrefs.GetInt("savedLevel");
+        levval = PlayerPrefs.GetInt("TaosavedLevel");
         levval = levval2;
         level = GameObject.Find("level").GetComponent<Text>();
         levval += 1;
         
         levval2 = levval;
         level.text = levval.ToString();
-        PlayerPrefs.SetInt("savedLevel", levval2);
+        PlayerPrefs.SetInt("TaosavedLevel", levval2);
 	    PlayerPrefs.Save();
    
         attack = GameObject.Find("attack").GetComponent<Text>();
         atval += upattack;
         attack.text = atval.ToString();
-        PlayerPrefs.SetInt("savedAttack", atval);
+        PlayerPrefs.SetInt("TaosavedAttack", atval);
 	    PlayerPrefs.Save();
 
         mp = GameObject.Find("mp").GetComponent<Text>();
@@ -355,19 +357,19 @@ public class Taostats : MonoBehaviour
         agility = GameObject.Find("agility").GetComponent<Text>();
         agility.text = agval.ToString();
         agval += upagility;
-        PlayerPrefs.SetInt("savedAgility", agval);
+        PlayerPrefs.SetInt("TaosavedAgility", agval);
 	    PlayerPrefs.Save();
 
         hp = GameObject.Find("hp").GetComponent<Text>();
         hp.text = hpval.ToString();
         hpval += uphp;
-        PlayerPrefs.SetInt("savedHP", hpval);
+        PlayerPrefs.SetInt("TaosavedHP", hpval);
 	    PlayerPrefs.Save();
 
         defense = GameObject.Find("defense").GetComponent<Text>();
         defense.text = defval.ToString();
         defval += updefense;
-        PlayerPrefs.SetInt("savedDefense", defval);
+        PlayerPrefs.SetInt("TaosavedDefense", defval);
 	    PlayerPrefs.Save();
 
         if (levval >= 10 && promoted == false)
@@ -395,7 +397,7 @@ public class Taostats : MonoBehaviour
        {
            blazePill4.SetActive(true);
            blaze4Val = 1;
-           PlayerPrefs.SetInt("blaze4Val", blaze4Val);
+           PlayerPrefs.SetInt("Taoblaze4Val", blaze4Val);
        }
        
        if ((promoted == false) & (levval >= 6))
@@ -406,19 +408,19 @@ public class Taostats : MonoBehaviour
         {
            sleepPill2.SetActive(true);
            sleep2Val = 1;
-           PlayerPrefs.SetInt("sleep2Val", sleep2Val);
+           PlayerPrefs.SetInt("Taosleep2Val", sleep2Val);
        }
        if ((promoted == false) & (levval >= 10))
         {
             desoulImage.SetActive(true);
             desoul1Val = 1;
-            PlayerPrefs.SetInt("desoul1Val", desoul1Val);
+            PlayerPrefs.SetInt("Taodesoul1Val", desoul1Val);
         }
         if ((promoted == true) & (levval >= 12)|| (promoted == false) & (levval >= 22)) 
         {
            desoulPill2.SetActive(true);
            desoul2Val = 1;
-           PlayerPrefs.SetInt("desoul2Val", desoul2Val);
+           PlayerPrefs.SetInt("Taodesoul2Val", desoul2Val);
        }
     }  
        public void resetStats()
@@ -431,7 +433,7 @@ public class Taostats : MonoBehaviour
               agval = 10;
               hpval = 12;
               mpval = 11;
-              PlayerPrefs.SetInt("savedMP", mpval);
+              PlayerPrefs.SetInt("TaosavedMP", mpval);
                promoted = false;
                sleepImage.SetActive(false);
                sleepPill2.SetActive(false);
@@ -444,7 +446,7 @@ public class Taostats : MonoBehaviour
         title1.SetActive(true);
         title2.SetActive(false);
         title.text = mage;
-        PlayerPrefs.SetInt("promotedVal", promotedVal);
+        PlayerPrefs.SetInt("TaopromotedVal", promotedVal);
               level = GameObject.Find("level").GetComponent<Text>();
         levval += 0;
         level.text = levval.ToString();

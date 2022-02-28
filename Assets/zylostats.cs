@@ -52,18 +52,18 @@ public class zylostats : MonoBehaviour
        
          hq.Play();
         attack = GetComponent<Text>();
-        if (PlayerPrefs.HasKey("savedAttack"))
+        if (PlayerPrefs.HasKey("ZylosavedAttack"))
         {
-        atval = PlayerPrefs.GetInt("savedAttack");
+        atval = PlayerPrefs.GetInt("ZylosavedAttack");
         }
         else
         {
         atval = 6;
 
         }
-        if (PlayerPrefs.HasKey("savedLevel"))
+        if (PlayerPrefs.HasKey("ZylosavedLevel"))
         {
-        levval = PlayerPrefs.GetInt("savedLevel");
+        levval = PlayerPrefs.GetInt("ZylosavedLevel");
         levval2 = levval;
         }
         else
@@ -72,45 +72,45 @@ public class zylostats : MonoBehaviour
         levval = levval2;
         }
 
-        if (PlayerPrefs.HasKey("savedHP"))
+        if (PlayerPrefs.HasKey("ZylosavedHP"))
         {
-        hpval = PlayerPrefs.GetInt("savedHP");
+        hpval = PlayerPrefs.GetInt("ZylosavedHP");
         }
         else
         {
         hpval = 15;
         }
 
-        if (PlayerPrefs.HasKey("savedDefense"))
+        if (PlayerPrefs.HasKey("ZylosavedDefense"))
         {
-        defval = PlayerPrefs.GetInt("savedDefense");
+        defval = PlayerPrefs.GetInt("ZylosavedDefense");
         }
         else
         {
         defval = 6;
         }
         
-        if (PlayerPrefs.HasKey("savedMP"))
+        if (PlayerPrefs.HasKey("ZylosavedMP"))
         {
-        mpval = PlayerPrefs.GetInt("savedMP");
+        mpval = PlayerPrefs.GetInt("ZylosavedMP");
         }
         else
         {
         mpval = 0;
         }
 
-        if (PlayerPrefs.HasKey("savedAgility"))
+        if (PlayerPrefs.HasKey("ZylosavedAgility"))
         {
-        agval = PlayerPrefs.GetInt("savedAgility");
+        agval = PlayerPrefs.GetInt("ZylosavedAgility");
         }
         else
         {
         agval = 12;
         }
         
-         if (PlayerPrefs.HasKey("promotedVal"))
+         if (PlayerPrefs.HasKey("ZylopromotedVal"))
         {
-        promotedVal = PlayerPrefs.GetInt("promotedVal");
+        promotedVal = PlayerPrefs.GetInt("ZylopromotedVal");
         }
         else
         {
@@ -156,13 +156,13 @@ public class zylostats : MonoBehaviour
        {   
         promoted = true;
         promotedVal = 1;
-        PlayerPrefs.SetInt("promotedVal", promotedVal);
+        PlayerPrefs.SetInt("ZylopromotedVal", promotedVal);
         hq.Pause();
         promotesound.Play();     
         promoteButton.SetActive(false);
         levval = 0;
         levval2 = 0;
-        PlayerPrefs.SetInt("savedLevel", levval2);
+        PlayerPrefs.SetInt("ZylosavedLevel", levval2);
         levelup();
         level = GetComponent<Text>();
         level.text = levval.ToString();             
@@ -187,20 +187,20 @@ public class zylostats : MonoBehaviour
         upagility = rnd.Next(0, 4);
         }
 
-      levval = PlayerPrefs.GetInt("savedLevel");
+      levval = PlayerPrefs.GetInt("ZylosavedLevel");
         levval = levval2;
         level = GameObject.Find("level").GetComponent<Text>();
         levval += 1;
         
         levval2 = levval;
         level.text = levval.ToString();
-        PlayerPrefs.SetInt("savedLevel", levval2);
+        PlayerPrefs.SetInt("ZylosavedLevel", levval2);
 	    PlayerPrefs.Save();
    
         attack = GameObject.Find("attack").GetComponent<Text>();
         atval += upattack;
         attack.text = atval.ToString();
-        PlayerPrefs.SetInt("savedAttack", atval);
+        PlayerPrefs.SetInt("ZylosavedAttack", atval);
 	    PlayerPrefs.Save();
 
         mp = GameObject.Find("mp").GetComponent<Text>();
@@ -209,19 +209,19 @@ public class zylostats : MonoBehaviour
         agility = GameObject.Find("agility").GetComponent<Text>();
         agility.text = agval.ToString();
         agval += upagility;
-        PlayerPrefs.SetInt("savedAgility", agval);
+        PlayerPrefs.SetInt("ZylosavedAgility", agval);
 	    PlayerPrefs.Save();
 
         hp = GameObject.Find("hp").GetComponent<Text>();
         hp.text = hpval.ToString();
         hpval += uphp;
-        PlayerPrefs.SetInt("savedHP", hpval);
+        PlayerPrefs.SetInt("ZylosavedHP", hpval);
 	    PlayerPrefs.Save();
 
         defense = GameObject.Find("defense").GetComponent<Text>();
         defense.text = defval.ToString();
         defval += updefense;
-        PlayerPrefs.SetInt("savedDefense", defval);
+        PlayerPrefs.SetInt("ZylosavedDefense", defval);
 	    PlayerPrefs.Save();
 
         if (levval >= 10 && promoted == false)
@@ -246,13 +246,13 @@ public class zylostats : MonoBehaviour
               agval = 12;
               hpval = 15;
               mpval = 0;
-              PlayerPrefs.SetInt("savedMP", mpval);
+              PlayerPrefs.SetInt("ZylosavedMP", mpval);
                promoted = false;
         promotedVal = 0;
         title1.SetActive(true);
         title2.SetActive(false);
         title.text = wfmn;
-        PlayerPrefs.SetInt("promotedVal", promotedVal);
+        PlayerPrefs.SetInt("ZylopromotedVal", promotedVal);
               level = GameObject.Find("level").GetComponent<Text>();
         levval += 0;
         level.text = levval.ToString();

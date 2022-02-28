@@ -246,8 +246,6 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2876}
     - Class: 114
-      Script: {instanceID: 3024}
-    - Class: 114
       Script: {instanceID: 3114}
     - Class: 114
       Script: {instanceID: 3364}
@@ -830,4 +828,4 @@ ScriptsOnlyBuild:
   - Assets/Max.unity
   - Assets/Tao.unity
   - Assets/Zylo.unity
-  playerPath: /Users/mac/SFLeveler/SFLeveler 1.9 Win/SFLeveler.exe
+  playerPath: /Users/mac/SFLeveler/SFLeveler Windows 2.0/SFLeveler.exe

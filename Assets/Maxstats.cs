@@ -62,10 +62,12 @@ public class Maxstats : MonoBehaviour
         if (PlayerPrefs.HasKey("savedLevel"))
         {
         levval = PlayerPrefs.GetInt("savedLevel");
+        levval2 = levval;
         }
         else
         {
         levval2 = 1;
+        levval = levval2;
         }
 
         if (PlayerPrefs.HasKey("savedHP"))
